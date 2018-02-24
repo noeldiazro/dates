@@ -17,8 +17,8 @@ class Month {
     private static final int MONTHS_IN_A_YEAR = 12;
 
 
-    private int number;
-    private Year year;
+    private final int number;
+    private final Year year;
 
     Month(int number, Year year) {
         this.number = number;

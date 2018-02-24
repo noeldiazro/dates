@@ -2,20 +2,20 @@ package es.montanus.dates;
 
 import junit.framework.TestCase;
 
-public class YearTest extends TestCase {
-    private Year year;
+public class YearImplTest extends TestCase {
+    private YearImpl year;
 
     @Override public void setUp() {
-        year = new Year(2018);
+        year = new YearImpl(2018);
     }
 
     public void testYearsWithSameNumberAreEqual() {
-        Year sameYear = new Year(2018);
+        YearImpl sameYear = new YearImpl(2018);
         assertTrue(year.equals(sameYear));
     }
 
     public void testYearsWithDifferentNumberAreDifferent() {
-        Year differentYear = new Year(2017);
+        YearImpl differentYear = new YearImpl(2017);
         assertFalse(year.equals(differentYear));
     }
 
@@ -28,12 +28,12 @@ public class YearTest extends TestCase {
     }
 
     public void testEqualYearsHaveSameHashcode() {
-        Year sameYear = new Year(2018);
+        YearImpl sameYear = new YearImpl(2018);
         assertEquals(year.hashCode(), sameYear.hashCode());
     }
 
     public void testLeapYear() {
-        Year leapYear = new Year(2016);
+        YearImpl leapYear = new YearImpl(2016);
         assertTrue(leapYear.isLeap());
     }
 
@@ -42,12 +42,12 @@ public class YearTest extends TestCase {
     }
 
     public void testRareNonLeapYear() {
-        Year rareNonLeapYear = new Year(1900);
+        YearImpl rareNonLeapYear = new YearImpl(1900);
         assertFalse(rareNonLeapYear.isLeap());
     }
 
     public void testRareLeapYear() {
-        Year rareLeapYear = new Year(2000);
+        YearImpl rareLeapYear = new YearImpl(2000);
         assertTrue(rareLeapYear.isLeap());
     }
 }
