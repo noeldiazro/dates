@@ -4,6 +4,38 @@ import junit.framework.TestCase;
 
 public class MonthTest extends TestCase {
 
+    private static final String NOT_THROWN = "Expected IllegalMonthNumberException was not thrown";
+
+    public void testInvalidMonthNumber_NegativeValue() {
+        try {
+            new Month(-1, new FakeYear());
+            fail(NOT_THROWN);
+        }
+        catch (IllegalMonthNumberException e) {
+            assertEquals(Month.ILLEGAL_MONTH_NUMBER_MSG, e.getMessage());
+        }
+    }
+
+    public void testInvalidMonthNumber_Zero() {
+        try {
+            new Month(0, new FakeYear());
+            fail(NOT_THROWN);
+        }
+        catch (IllegalMonthNumberException e) {
+            assertEquals(Month.ILLEGAL_MONTH_NUMBER_MSG, e.getMessage());
+        }
+    }
+
+    public void testInvalidMonthNumber_BiggerThan12() {
+        try {
+            new Month(13, new FakeYear());
+            fail(NOT_THROWN);
+        }
+        catch (IllegalMonthNumberException e) {
+            assertEquals(Month.ILLEGAL_MONTH_NUMBER_MSG, e.getMessage());
+        }
+    }
+
     public void testMonthEquality() {
         final Year year = new FakeYear(false, true);
 

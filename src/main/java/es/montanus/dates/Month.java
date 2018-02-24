@@ -14,13 +14,17 @@ class Month {
     static final int OCTOBER = 10;
     static final int NOVEMBER = 11;
     static final int DECEMBER = 12;
-    private static final int MONTHS_IN_A_YEAR = 12;
 
+    static final String ILLEGAL_MONTH_NUMBER_MSG = "Month number must be between 1 and 12.";
+
+    private static final int MONTHS_IN_A_YEAR = 12;
 
     private final int number;
     private final Year year;
 
     Month(int number, Year year) {
+        if (number <= 0 || number > MONTHS_IN_A_YEAR) throw new IllegalMonthNumberException(ILLEGAL_MONTH_NUMBER_MSG);
+
         this.number = number;
         this.year = year;
     }

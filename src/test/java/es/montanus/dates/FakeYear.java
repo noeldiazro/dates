@@ -4,6 +4,10 @@ public class FakeYear implements Year {
     private final boolean leap;
     private final boolean equals;
 
+    public FakeYear() {
+        this(false);
+    }
+
     public FakeYear(boolean leap) {
         this(leap, true);
     }
