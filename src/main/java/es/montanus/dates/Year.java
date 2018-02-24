@@ -8,11 +8,7 @@ class Year {
     }
 
     @Override public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-
-        if (!(obj instanceof Year))
-            return false;
+        if (obj == null || !(obj instanceof Year)) return false;
 
         Year that = (Year)obj;
         return this.number == that.number;
