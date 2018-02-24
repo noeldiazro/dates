@@ -1,5 +1,5 @@
 package es.montanus.dates;
 
-public interface Year {
+interface Year {
     boolean isLeap();
 }
